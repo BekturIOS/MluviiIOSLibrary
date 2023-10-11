@@ -179,3 +179,17 @@ public class MluviiChatLibrary :  UIViewController, WKUIDelegate, WKNavigationDe
         webView?.evaluateJavaScript(script, completionHandler: nil)
     }
 }
+
+    public extension WKWebView {
+        func openVideo() {
+            let openScript = "$owidget.openAppOnCurrentPage('av')"
+                evaluateJavaScript(openScript, completionHandler: nil)
+                frame = superview?.bounds ?? CGRect.zero
+                superview?.autoresizesSubviews = true
+        
+            let webView = WKWebView(frame: CGRect(x: 0, y: 0, width: 320, height: 240))
+
+        webView.openVideo()
+    }
+}
+
